@@ -2,11 +2,10 @@
 <html>
 <head>
 <title>Mending Cinderella | Ariane Kunze</title>
-<link href="app.css" media="all" rel="stylesheet" />
+<link data-turbolinks-track="true" href="app.css" media="all" rel="stylesheet" />
 <meta charset="utf-8">
 </head>
 <body>
-
 
 <style type="text/css">
 .lead-video {
@@ -118,7 +117,7 @@ margin-top: 50px;
 
 
 <!-- start 14 -->
-<iframe class="lead-video" src="//player.vimeo.com/video/87591199" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe class="lead-video" src="//player.vimeo.com/video/89001112?title=0&amp;byline=0&amp;portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 <!-- end 14 -->
 <!-- start 11 -->
 <h1>Mending Cinderella</h1>
@@ -382,6 +381,31 @@ When an adult is coerced, forced, or deceived into prostitution, or maintained i
 
 <p>The two part ways.</p>
 <!-- end 17 -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+    
+      $(document).ready(function() {
+        var resizeTimer = null;
+        var $player = $('.lead-video');
+        var $window = $(window);
+        var resize_video = function() {
+          var height =  parseInt($window.width()*(2810.0/5000)) + 1;
+          console.log("resize", height);
+          $player.css('height', height+'px');
+        }
+        resize_video();
+        $window.resize(function() {
+          if (resizeTimer === null) {
+            resize_video();
+            setTimeout(function() {              
+              resizeTimer = null;
+              resize_video();
+            }, 50);
+          } 
+        });
+      });
+    </script>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
